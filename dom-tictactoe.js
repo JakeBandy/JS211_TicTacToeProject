@@ -14,6 +14,8 @@ let board = [
   ['','',''],
   ['','','']
 ];
+let board = [['','',''],['','',''],['','','']];
+console.log(board[0][0])
 
 // is called when a square is clicked. "this" = element here
 const handleClick = (element) => {
@@ -25,7 +27,6 @@ const handleClick = (element) => {
     checkForWin()
   }
 }
-
 const addMarker = (id) => {
   console.log(`We'll place a mark on square: ${id}`)
   // @TODO, Mix & Match. 
@@ -39,20 +40,16 @@ const addMarker = (id) => {
   // Arrange the above pieces into a single line of code
   // to add an X or O to the board to the DOM so it can be scene on the screen.
 }
-
 // passes the element's id attribute from HTML to be used
 const updateBoard = (id) => {
   // parses the id string into a number then captures the first and last part of the newly created number as row & column
   const row = parseInt(id.charAt(0))
   const column = parseInt(id.charAt(2)) 
-
   console.log(`you clicked the sq at ${row} and ${column}`)
   console.log(board)
-
   // @TODO, Your code here: use the above information to change the board variable(array of arrays)
   // HINT: in your browser open up the dev tools -> console
 }
-
 const checkForWin = () => {
   // calls each checkForWin possibility and if any are true gives a page alert,
   if(horizontalWin() || verticalWin() || diagonalWin()) {
@@ -63,28 +60,22 @@ const checkForWin = () => {
     changeMarker()
   }
 }
-
 const horizontalWin = () => {
   // @TODO, Your code here: to check for horizontal wins
 }
-
 const verticalWin = () => {
   // @TODO, Your code here: to check for vertical wins
 }
-
 const diagonalWin = () => {
   // @TODO, Your code here: to check for diagonal wins
 }
-
 const changeMarker = () => {
   // ternary operator: if it's an X make it an O, if O make it an X
   currentMarker = currentMarker === "X" ? "O" : "X"
 }
-
 const resetBoard = () => {
   // sanity check: this tells us the function is being called
   console.log("the board was cleared!")
-
   // collects all of the "td"s into an HTML Collection: https://www.w3schools.com/jsref/dom_obj_htmlcollection.asp  
   const squares = document.getElementsByTagName("TD")
   
